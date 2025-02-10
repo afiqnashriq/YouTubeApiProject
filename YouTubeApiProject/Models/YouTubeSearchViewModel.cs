@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace YouTubeApiProject.Models
+﻿namespace YouTubeApiProject.Models
 {
     public class YouTubeSearchViewModel
     {
-        public List<YouTubeVideoModel> Videos { get; set; } = new(); // List of videos
-        public int CurrentPage { get; set; } // The current page number
-        public int TotalPages { get; set; } // The total number of pages
-        public string Query { get; set; } = string.Empty; // The search query
+        public string Query { get; set; } = string.Empty;
+        public string Duration { get; set; } = "any";
+        public string UploadDate { get; set; } = "any";
+        public int CurrentPage { get; set; }
+        public int TotalPages { get; set; }
+        public List<YouTubeVideoModel> Videos { get; set; } = new();
     }
 }

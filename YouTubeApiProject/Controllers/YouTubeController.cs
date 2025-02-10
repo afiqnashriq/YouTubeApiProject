@@ -1,32 +1,32 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using YouTubeApiProject.Services;
 using YouTubeApiProject.Models;
+using YouTubeApiProject.Services;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace YouTubeApiProject.Controllers
 {
     public class YouTubeController : Controller
     {
         private readonly YouTubeApiService _youtubeService;
-        private const int PageSize = 5; // Number of videos per page
+        private const int PageSize = 5; // Define PageSize
 
         public YouTubeController(YouTubeApiService youtubeService)
         {
             _youtubeService = youtubeService;
         }
 
-        // Display Search Page
+        [HttpGet]
         public IActionResult Index()
         {
-            return View(new YouTubeSearchViewModel()); // Pass an empty ViewModel initially
+            return View(new YouTubeSearchViewModel());
         }
 
-        // Handle search query with pagination
         [HttpPost]
-        public async Task<IActionResult> Search(string query, int page = 1)
+        public async Task<IActionResult> Search(string query, string duration = "any", string uploadDate = "any", int page = 1)
         {
-            var allVideos = await _youtubeService.SearchVideosAsync(query);
-            int totalVideos = allVideos.Count;
+            var allVideos = await _youtubeService.SearchVideosAsync(query, duration, uploadDate);
+            int totalVideos = allVideos.Count(); // Fix Count issue
             int totalPages = (int)Math.Ceiling(totalVideos / (double)PageSize);
 
             var paginatedVideos = allVideos.Skip((page - 1) * PageSize).Take(PageSize).ToList();
@@ -36,7 +36,9 @@ namespace YouTubeApiProject.Controllers
                 Videos = paginatedVideos,
                 CurrentPage = page,
                 TotalPages = totalPages,
-                Query = query
+                Query = query,
+                Duration = duration,
+                UploadDate = uploadDate
             };
 
             return View("Index", viewModel);

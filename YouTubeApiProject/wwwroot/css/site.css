@@ -1,4 +1,4 @@
-/* Global Styles */
+/* General Styles */
 html {
     font-size: 14px;
     position: relative;
@@ -16,47 +16,135 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures full viewport height */
-}
-
-/* Main Content */
-.main-content {
-    flex-grow: 1; /* Pushes footer down */
-    padding-bottom: 60px; /* Ensures content doesn't overlap with footer */
-}
-
-/* Buttons & Forms */
-.btn:focus,
-.btn:active:focus,
-.btn-link.nav-link:focus,
-.form-control:focus,
-.form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-/* Footer Styling */
-.footer {
-    background-color: #343a40; /* Solid dark gray */
-    color: #ffffff; /* White text */
-    padding: 15px 0;
+    min-height: 100vh;
+    background-color: #f5f5dc; /* Soft beige background */
+    font-family: 'Arial', sans-serif;
+    color: #333;
     text-align: center;
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    backdrop-filter: blur(10px); /* Adds a blur effect for better readability */
 }
 
-/* Pagination */
-.pagination {
-    background-color: rgba(255, 255, 255, 0.7); /* Light background for pagination */
-    padding: 10px;
-    border-radius: 10px;
+main {
+    flex: 1;
+    padding-bottom: 120px; /* Adjusted to create space before the footer */
 }
 
-/* Responsive Footer Fix */
-@media (max-width: 768px) {
-    .footer {
-        position: relative; /* Prevents issues on smaller screens */
+/* Hero Section */
+.hero {
+    background: #e6dac4; /* Slightly darker beige */
+    padding: 50px 20px;
+    color: #333;
+    font-size: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+    .hero h1 {
+        margin: 0;
+        font-size: 2.2rem;
     }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-top: 10px;
+    }
+
+/* YouTube Logo */
+.youtube-logo {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+    .youtube-logo img {
+        max-width: 200px;
+        height: auto;
+    }
+
+/* About Us Section */
+.about {
+    padding: 50px 20px;
+    background: #ffffff; /* White for contrast */
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+.about-list {
+    list-style: none;
+    padding: 0;
+}
+
+    .about-list li {
+        font-size: 1.1rem;
+        margin: 8px 0;
+    }
+
+/* Features Section */
+.features {
+    padding: 50px;
+    background: #f3e9dd; /* Light cream color for separation */
+    text-align: center;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+/* Updated Image Gallery */
+.gallery {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Center the artist grid */
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Artist Card */
+.artist-card {
+    width: 180px;
+    height: 180px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .artist-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 15px;
+    }
+
+    .artist-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+
+/* Pagination Fix - Adds space before footer */
+.pagination-container {
+    margin-bottom: 80px; /* Increased space */
+    padding-bottom: 80px; /* Additional spacing */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+    margin-top: auto;
 }

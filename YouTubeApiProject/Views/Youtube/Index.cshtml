@@ -5,9 +5,32 @@
     <h2 class="text-center">Search YouTube Videos</h2>
 
     <!-- Search Form -->
-    <form asp-action="Search" method="post" class="d-flex justify-content-center mt-3">
-        <input type="text" class="form-control w-50" name="query" value="@Model.Query" placeholder="Search for an artist">
-        <button type="submit" class="btn btn-secondary ms-2">Search</button>
+    <form asp-action="Search" method="post" class="d-flex flex-column align-items-center mt-3">
+        <div class="d-flex w-75">
+            <input type="text" class="form-control me-2" name="query" value="@Model.Query" placeholder="Search for an artist">
+            <button type="submit" class="btn btn-secondary">Search</button>
+        </div>
+
+        <!-- Filters -->
+        <div class="d-flex mt-3 w-75">
+            <!-- Filter by Duration -->
+            <select name="duration" class="form-select me-2">
+                <option value="any" selected="@(Model.Duration == "any")">Any Duration</option>
+                <option value="short" selected="@(Model.Duration == "short")">Short (< 4 mins)</option>
+                <option value="medium" selected="@(Model.Duration == "medium")">Medium (4-20 mins)</option>
+                <option value="long" selected="@(Model.Duration == "long")">Long (> 20 mins)</option>
+            </select>
+
+            <!-- Filter by Upload Date -->
+            <select name="uploadDate" class="form-select">
+                <option value="any" selected="@(Model.UploadDate == "any")">Any Time</option>
+                <option value="today" selected="@(Model.UploadDate == "today")">Today</option>
+                <option value="this_week" selected="@(Model.UploadDate == "this_week")">This Week</option>
+                <option value="this_month" selected="@(Model.UploadDate == "this_month")">This Month</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary ms-2">Apply Filters</button>
+        </div>
     </form>
 
     @if (Model.Videos != null && Model.Videos.Any())
@@ -34,6 +57,8 @@
                 <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
                     <form asp-action="Search" method="post" class="d-inline">
                         <input type="hidden" name="query" value="@Model.Query">
+                        <input type="hidden" name="duration" value="@Model.Duration">
+                        <input type="hidden" name="uploadDate" value="@Model.UploadDate">
                         <input type="hidden" name="page" value="@(Model.CurrentPage - 1)">
                         <button type="submit" class="page-link">Previous</button>
                     </form>
@@ -44,6 +69,8 @@
                     <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
                         <form asp-action="Search" method="post" class="d-inline">
                             <input type="hidden" name="query" value="@Model.Query">
+                            <input type="hidden" name="duration" value="@Model.Duration">
+                            <input type="hidden" name="uploadDate" value="@Model.UploadDate">
                             <input type="hidden" name="page" value="@i">
                             <button type="submit" class="page-link">@i</button>
                         </form>
@@ -53,6 +80,8 @@
                 <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
                     <form asp-action="Search" method="post" class="d-inline">
                         <input type="hidden" name="query" value="@Model.Query">
+                        <input type="hidden" name="duration" value="@Model.Duration">
+                        <input type="hidden" name="uploadDate" value="@Model.UploadDate">
                         <input type="hidden" name="page" value="@(Model.CurrentPage + 1)">
                         <button type="submit" class="page-link">Next</button>
                     </form>

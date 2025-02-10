@@ -2,42 +2,92 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="container mt-5">
-    <!-- Hero Section -->
-    <div class="text-center mb-4">
-        <h1 class="fw-bold">Welcome to My YouTube App</h1>
-        <p class="lead text-muted">Easily search and discover YouTube videos with our intuitive interface.</p>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My YouTube App</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
 
-    <hr />
+    <main>
+        <!-- Hero Section -->
+        <header class="hero">
+            <h1><b>Welcome to My YouTube App</b></h1>
+            <p>Easily search and discover YouTube videos with our intuitive interface.</p>
+        </header>
 
-    <!-- About Us Section -->
-    <div class="row align-items-center mt-4">
-        <div class="col-md-6">
-            <h2 class="fw-bold">About Us</h2>
-            <p class="text-muted">
-                Welcome to <strong>YouTube App</strong>, your one-stop platform for discovering and exploring YouTube videos effortlessly.
-                Our website is powered by the <strong>YouTube API</strong>, allowing users to search, stream, and find trending content quickly.
+        <!-- YouTube Logo -->
+        <div class="youtube-logo">
+            <img src="~/images/youtubelogo.png" alt="YouTube Logo">
+        </div>
+
+        <!-- About Us Section -->
+        <section class="about">
+            <h2>About Us</h2>
+            <p>
+                Welcome to <b>YouTube App</b>, your one-stop destination for discovering, exploring, and watching YouTube videos like never before! Our app is designed to make your video experience hassle-free and delightful.
+                With a few taps, you can hunt for your favorite artists, songs, and videos or explore trending content and secrets. Whether you're in the mood for the newest hits, hip new creators, or simply browsing YouTube's infinite library, we've got you covered.
+                Driven by the <b>YouTube API</b>, our application serves up the newest, most pertinent videos in real time—so you're always in the know with what's trending!
             </p>
 
-            <h4 class="mt-3">🌟 Why Choose Us?</h4>
-            <ul class="list-unstyled">
-                <li>✅ <strong>Fast & Efficient Search</strong> – Instantly find the latest music, podcasts, and videos.</li>
-                <li>✅ <strong>User-Friendly Interface</strong> – Simple and intuitive design for a seamless experience.</li>
-                <li>✅ <strong>Always Updated</strong> – Get the most recent videos directly from YouTube.</li>
+
+            <h3>📌 What We Offer:</h3>
+            <ul class="about-list">
+                <li>🎵 <b>Music Discovery</b> – Instantly search for songs, artists, or music videos.</li>
+                <li>🌐 <b>Global Access</b> – Explore content from creators worldwide in one place.</li>
+                <li>📺 <b>Easy YouTube Access</b> – Instantly open videos on YouTube with one click.</li>
+                <li>📑 <b>Smart Filters</b> – Narrow down search results by duration, upload date, and relevance.</li>
+                <li>⭐  <b>Personalized Experience</b> – Get better search recommendations based on your preferences.</li>
+                <li>🔄 <b>Redirected Playback</b> – Open videos directly in the YouTube app or website for a smooth viewing experience.</li>
+                
+                
             </ul>
+        </section>
 
-            <p class="text-muted">
-                Whether you're looking for your favorite songs, trending videos, or discovering new content,
-                <strong>YouTube App</strong> makes it easy for you!
-            </p>
-            <img src="~/images/artist.png" class="img-fluid rounded" alt="About Us">
+        <!-- Features Section -->
+        <section class="features">
+            <h3>🌟 Why Choose Us?</h3>
+            <ul class="features-list">
+                <li>✅ <b>Fast & Efficient Search</b> – Instantly find the latest music, podcasts, and videos.</li>
+                <li>✅ <b>User-Friendly Interface</b> – Simple and intuitive design for a seamless experience.</li>
+                <li>✅ <b>Always Updated</b> – Get the most recent videos directly from YouTube.</li>
+            </ul>
+        </section>
 
-        </div>
+        <!-- Featured Artists -->
+        <section class="gallery">
+            <h3>🎤 Featured Artists</h3>
+            <div class="photo-grid">
+                <div class="artist-card">
+                    <img src="~/images/billie.png" alt="Billie Eilish">
+                </div>
+                <div class="artist-card">
+                    <img src="~/images/bruno.png" alt="Bruno Mars">
+                </div>
+                <div class="artist-card">
+                    <img src="~/images/dualipa.png" alt="Dua Lipa">
+                </div>
+                <div class="artist-card">
+                    <img src="~/images/shawn.png" alt="Shawn Mendes">
+                </div>
+                <div class="artist-card">
+                    <img src="~/images/taylor.png" alt="Taylor Swift">
+                </div>
+                <div class="artist-card">
+                    <img src="~/images/ed.png" alt="Ed Sheeran">
+                </div>
+                <div class="artist-card">
+                    <img src="~/images/justin.png" alt="Justin Bieber">
+                </div>
+                <div class="artist-card">
+                    <img src="~/images/ariana.png" alt="Ariana Grande">
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <!-- Image Section -->
-        <div class="col-md-6 text-center">
-            <img src="~/images/youtubelogo.png" class="img-fluid rounded shadow-lg" alt="Website Logo">
-        </div>
-    </div>
-</div>
+</body>
+</html>
